@@ -30,6 +30,8 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
+
 if (process.env.NODE_ENV === 'production') {
     // making sure express will serve production assets.
     app.use(express.static('client/build'));
