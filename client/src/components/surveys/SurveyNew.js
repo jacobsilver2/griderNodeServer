@@ -1,10 +1,14 @@
+// surveyNew shows surveyNew and surveyForm
+
 import React, { Component } from 'react';
+import SurveyForm from './SurveyForm'
 
 class SurveyNew extends Component {
-    state = {  }
     render() {
         return (
-            
+            <div>
+                <SurveyForm />
+            </div>
         );
     }
 }

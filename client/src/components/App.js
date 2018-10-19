@@ -5,8 +5,8 @@ import * as actions from '../actions/index';
 import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard'
+import SurveyNew from './surveys/SurveyNew';
 
-const SurveyNew = () => <h2>SurveyNew</h2>
 
 class App extends Component {
   state = {  }
