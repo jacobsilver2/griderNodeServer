@@ -3,12 +3,40 @@ import { connect } from 'react-redux';
 import { fetchSurveys } from '../../actions/index';
 
 class SurveyList extends Component {
-    state = {  }
+
+    componentDidMount() {
+        this.props.fetchSurveys();
+    }
+
+    renderSurveys(){
+        return this.props.surveys.reverse().map(survey => {
+            return (
+                <div key={survey._id} class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title">{survey.title}</span>
+                  <p>{survey.body}</p>
+                  <p className="right">Sent on: {new Date(survey.dateSent).toLocaleDateString()}</p>
+                </div>
+                <div class="card-action">
+                  <a>Yes: {survey.yes}</a>
+                  <a>No: {survey.no}</a>
+                </div>
+              </div>
+            );
+        });
+    };
+
     render() {
         return (
-            
+            <div>
+             {this.renderSurveys()}   
+            </div>
         );
     }
 }
 
-export default connect()(SurveyList);
+function mapStateToProps({surveys}){
+    return { surveys }
+}
+
+export default connect(mapStateToProps, {fetchSurveys})(SurveyList);
