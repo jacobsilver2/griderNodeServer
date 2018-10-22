@@ -17,6 +17,10 @@ module.exports = app => {
     res.send(surveys);
   })
 
+  // app.delete('api/surveys/:surveyId', requireLogin, async (req, res) => {
+  //   const surveyToDelete = await Survey.find({ _user: req.user.id })
+  // })
+
 
   app.get('/api/surveys/:surveyId/:choice', (req, res) => {
     res.send('Thanks for your input');
