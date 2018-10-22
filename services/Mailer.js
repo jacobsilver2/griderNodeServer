@@ -5,12 +5,11 @@ const keys = require('../config/keys');
 
 // this is a class extension of a sendgrid class
 class Mailer extends helper.Mail {
-    constructor({ subject, recipients }, content) {
+    constructor({ subject, recipients, from }, content) {
         super();
-
         // these are all required for sendgrid
         this.sgApi = sendgrid(keys.sendGridKey);
-        this.from_email = new helper.Email('no-reply@emaily.com');
+        this.from_email = new helper.Email(from);
         this.subject = subject;
         this.body = new helper.Content('text/html', content);
         this.recipients = this.formatAddresses(recipients);
